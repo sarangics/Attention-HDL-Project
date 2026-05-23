@@ -1,0 +1,741 @@
+$date
+	Sun May 24 02:05:46 2026
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1ps
+$end
+$scope module tb_attention $end
+$var reg 1 ! clk $end
+$var reg 1 " rst $end
+$scope module dut $end
+$var wire 1 ! clk $end
+$var wire 1 # load_done $end
+$var wire 1 " rst $end
+$var wire 1 $ write_done $end
+$var wire 1 % write_start $end
+$var wire 1 & softmax_start $end
+$var wire 1 ' softmax_done $end
+$var wire 1 ( score_start $end
+$var wire 1 ) score_done $end
+$var wire 1 * scale_start $end
+$var wire 1 + scale_done $end
+$var wire 1 , qkv_start $end
+$var wire 1 - qkv_done $end
+$var wire 1 . output_start $end
+$var wire 1 / output_done $end
+$var wire 1 0 load_start $end
+$var wire 1 1 done $end
+$var parameter 32 2 D $end
+$var parameter 32 3 N $end
+$var reg 1 4 finished $end
+$var integer 32 5 i [31:0] $end
+$var integer 32 6 j [31:0] $end
+$var integer 32 7 outfile [31:0] $end
+$scope module FSM $end
+$var wire 1 ! clk $end
+$var wire 1 # load_done $end
+$var wire 1 " rst $end
+$var wire 1 $ write_done $end
+$var wire 1 ' softmax_done $end
+$var wire 1 ) score_done $end
+$var wire 1 + scale_done $end
+$var wire 1 - qkv_done $end
+$var wire 1 / output_done $end
+$var parameter 3 8 GEN_QKV $end
+$var parameter 3 9 IDLE $end
+$var parameter 3 : LOAD $end
+$var parameter 3 ; OUTPUT $end
+$var parameter 3 < SCALE $end
+$var parameter 3 = SCORE $end
+$var parameter 3 > SOFTMAX $end
+$var parameter 3 ? WRITE $end
+$var reg 3 @ current_state [2:0] $end
+$var reg 1 1 done $end
+$var reg 1 0 load_start $end
+$var reg 3 A next_state [2:0] $end
+$var reg 1 . output_start $end
+$var reg 1 , qkv_start $end
+$var reg 1 * scale_start $end
+$var reg 1 ( score_start $end
+$var reg 1 & softmax_start $end
+$var reg 1 % write_start $end
+$upscope $end
+$scope module K_GEN $end
+$var wire 1 ! clk $end
+$var wire 1 , start $end
+$var parameter 32 B D $end
+$var parameter 32 C N $end
+$var reg 1 D done $end
+$var integer 32 E i [31:0] $end
+$var integer 32 F j [31:0] $end
+$var integer 32 G k [31:0] $end
+$upscope $end
+$scope module OUTPUT_UNIT $end
+$var wire 1 ! clk $end
+$var wire 1 . start $end
+$var parameter 32 H D $end
+$var parameter 32 I N $end
+$var reg 64 J acc [63:0] $end
+$var reg 1 / done $end
+$var integer 32 K i [31:0] $end
+$var integer 32 L j [31:0] $end
+$var integer 32 M k [31:0] $end
+$upscope $end
+$scope module Q_GEN $end
+$var wire 1 ! clk $end
+$var wire 1 , start $end
+$var parameter 32 N D $end
+$var parameter 32 O N $end
+$var reg 1 - done $end
+$var integer 32 P i [31:0] $end
+$var integer 32 Q j [31:0] $end
+$var integer 32 R k [31:0] $end
+$upscope $end
+$scope module SCALE_UNIT $end
+$var wire 1 ! clk $end
+$var wire 1 * start $end
+$var parameter 32 S N $end
+$var reg 1 + done $end
+$var integer 32 T i [31:0] $end
+$var integer 32 U j [31:0] $end
+$upscope $end
+$scope module SCORE_UNIT $end
+$var wire 1 ! clk $end
+$var wire 1 ( start $end
+$var parameter 32 V D $end
+$var parameter 32 W N $end
+$var reg 1 ) done $end
+$var integer 32 X i [31:0] $end
+$var integer 32 Y j [31:0] $end
+$var integer 32 Z k [31:0] $end
+$upscope $end
+$scope module SOFTMAX_UNIT $end
+$var wire 1 ! clk $end
+$var wire 1 & start $end
+$var parameter 32 [ N $end
+$var reg 1 ' done $end
+$var reg 32 \ max_val [31:0] $end
+$var reg 64 ] sum_exp [63:0] $end
+$var integer 32 ^ i [31:0] $end
+$var integer 32 _ j [31:0] $end
+$scope function exp_lut $end
+$var reg 32 ` abs_x [31:0] $end
+$var reg 32 a x [31:0] $end
+$upscope $end
+$upscope $end
+$scope module V_GEN $end
+$var wire 1 ! clk $end
+$var wire 1 , start $end
+$var parameter 32 b D $end
+$var parameter 32 c N $end
+$var reg 1 d done $end
+$var integer 32 e i [31:0] $end
+$var integer 32 f j [31:0] $end
+$var integer 32 g k [31:0] $end
+$upscope $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+$comment Show the parameter values. $end
+$dumpall
+b10 c
+b100 b
+b10 [
+b10 W
+b100 V
+b10 S
+b10 O
+b100 N
+b10 I
+b100 H
+b10 C
+b100 B
+b111 ?
+b101 >
+b11 =
+b100 <
+b110 ;
+b1 :
+b0 9
+b10 8
+b10 3
+b100 2
+$end
+#0
+$dumpvars
+bx g
+bx f
+bx e
+xd
+bx a
+bx `
+bx _
+bx ^
+bx ]
+bx \
+bx Z
+bx Y
+bx X
+bx U
+bx T
+bx R
+bx Q
+bx P
+bx M
+bx L
+bx K
+bx J
+bx G
+bx F
+bx E
+xD
+b1 A
+b0 @
+bx 7
+bx 6
+bx 5
+04
+01
+00
+x/
+0.
+x-
+0,
+x+
+0*
+x)
+0(
+x'
+0&
+0%
+0$
+1#
+1"
+0!
+$end
+#5000
+b1 A
+0'
+0/
+1!
+#10000
+0!
+#15000
+1!
+#20000
+0!
+0"
+#25000
+10
+b10 A
+b1 @
+1!
+#30000
+0!
+#35000
+1,
+00
+b10 @
+1!
+#40000
+0!
+#45000
+b11 A
+1-
+1D
+1d
+b100 R
+b100 Q
+b10 P
+b100 G
+b100 F
+b10 E
+b100 g
+b100 f
+b10 e
+1!
+#50000
+0!
+#55000
+1(
+0,
+b11 @
+b100 g
+b100 f
+b10 e
+b100 G
+b100 F
+b10 E
+b100 R
+b100 Q
+b10 P
+b100 6
+b10 5
+1!
+#60000
+0!
+#65000
+b100 A
+1)
+b100 Z
+b10 Y
+b10 X
+b100 6
+b10 5
+1!
+#70000
+0!
+#75000
+1*
+0(
+b100 @
+b100 Z
+b10 Y
+b10 X
+b10 6
+b10 5
+1!
+#80000
+0!
+#85000
+b101 A
+1+
+b10 U
+b10 T
+b10 6
+b10 5
+1!
+#90000
+0!
+#95000
+1&
+0*
+b101 @
+b10 U
+b10 T
+b10 6
+b10 5
+1!
+#100000
+0!
+#105000
+b110 A
+1'
+b110100 `
+b0 a
+b100000000 ]
+b10 _
+b1010111 \
+b10 ^
+b10 6
+b10 5
+1!
+#110000
+0!
+#115000
+1.
+0&
+b110 @
+b110100 `
+b0 a
+b100000000 ]
+b10 _
+b1010111 \
+b10 ^
+b10 6
+b10 5
+1!
+#120000
+0!
+#125000
+b111 A
+0'
+1/
+b10 M
+b100000000000 J
+b100 L
+b10 K
+b10 6
+b10 5
+1!
+#130000
+0!
+#135000
+0.
+b111 @
+b10 M
+b100000000000 J
+b100 L
+b10 K
+b100 6
+b10 5
+1!
+#140000
+0!
+#145000
+0/
+1$
+1%
+b100 6
+b10 5
+1!
+#150000
+0!
+#155000
+0$
+0%
+14
+11
+b10 6
+b10 5
+b10000000000000000000000000000011 7
+1!
+#160000
+0!
+#165000
+1!
+#170000
+0!
+#175000
+1!
+#180000
+0!
+#185000
+1!
+#190000
+0!
+#195000
+1!
+#200000
+0!
+#205000
+1!
+#210000
+0!
+#215000
+1!
+#220000
+0!
+#225000
+1!
+#230000
+0!
+#235000
+1!
+#240000
+0!
+#245000
+1!
+#250000
+0!
+#255000
+1!
+#260000
+0!
+#265000
+1!
+#270000
+0!
+#275000
+1!
+#280000
+0!
+#285000
+1!
+#290000
+0!
+#295000
+1!
+#300000
+0!
+#305000
+1!
+#310000
+0!
+#315000
+1!
+#320000
+0!
+#325000
+1!
+#330000
+0!
+#335000
+1!
+#340000
+0!
+#345000
+1!
+#350000
+0!
+#355000
+1!
+#360000
+0!
+#365000
+1!
+#370000
+0!
+#375000
+1!
+#380000
+0!
+#385000
+1!
+#390000
+0!
+#395000
+1!
+#400000
+0!
+#405000
+1!
+#410000
+0!
+#415000
+1!
+#420000
+0!
+#425000
+1!
+#430000
+0!
+#435000
+1!
+#440000
+0!
+#445000
+1!
+#450000
+0!
+#455000
+1!
+#460000
+0!
+#465000
+1!
+#470000
+0!
+#475000
+1!
+#480000
+0!
+#485000
+1!
+#490000
+0!
+#495000
+1!
+#500000
+0!
+#505000
+1!
+#510000
+0!
+#515000
+1!
+#520000
+0!
+#525000
+1!
+#530000
+0!
+#535000
+1!
+#540000
+0!
+#545000
+1!
+#550000
+0!
+#555000
+1!
+#560000
+0!
+#565000
+1!
+#570000
+0!
+#575000
+1!
+#580000
+0!
+#585000
+1!
+#590000
+0!
+#595000
+1!
+#600000
+0!
+#605000
+1!
+#610000
+0!
+#615000
+1!
+#620000
+0!
+#625000
+1!
+#630000
+0!
+#635000
+1!
+#640000
+0!
+#645000
+1!
+#650000
+0!
+#655000
+1!
+#660000
+0!
+#665000
+1!
+#670000
+0!
+#675000
+1!
+#680000
+0!
+#685000
+1!
+#690000
+0!
+#695000
+1!
+#700000
+0!
+#705000
+1!
+#710000
+0!
+#715000
+1!
+#720000
+0!
+#725000
+1!
+#730000
+0!
+#735000
+1!
+#740000
+0!
+#745000
+1!
+#750000
+0!
+#755000
+1!
+#760000
+0!
+#765000
+1!
+#770000
+0!
+#775000
+1!
+#780000
+0!
+#785000
+1!
+#790000
+0!
+#795000
+1!
+#800000
+0!
+#805000
+1!
+#810000
+0!
+#815000
+1!
+#820000
+0!
+#825000
+1!
+#830000
+0!
+#835000
+1!
+#840000
+0!
+#845000
+1!
+#850000
+0!
+#855000
+1!
+#860000
+0!
+#865000
+1!
+#870000
+0!
+#875000
+1!
+#880000
+0!
+#885000
+1!
+#890000
+0!
+#895000
+1!
+#900000
+0!
+#905000
+1!
+#910000
+0!
+#915000
+1!
+#920000
+0!
+#925000
+1!
+#930000
+0!
+#935000
+1!
+#940000
+0!
+#945000
+1!
+#950000
+0!
+#955000
+1!
+#960000
+0!
+#965000
+1!
+#970000
+0!
+#975000
+1!
+#980000
+0!
+#985000
+1!
+#990000
+0!
+#995000
+1!
+#1000000
+0!
+#1005000
+1!
+#1010000
+0!
+#1015000
+1!
+#1020000
+0!
