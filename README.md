@@ -1,10 +1,31 @@
 # Attention-HDL-Project
+
 Hardware Implementation of Attention Mechanism
 
+## Prerequisite
+
+- Python
+- iverilog
+- GTK Wave
+- VS Code or any other IDE
+
+## How to Simulate
+
+- First Clone the repository to your Workspace
+- Open the terminal inside the project directory
+- Compile the code using iverilog
+    > iverilog -g2012 -o sim.out rtl/attention_top.v rtl/controller_fsm.v rtl/matrix_mult.v rtl/score_unit.v rtl/scaling_unit.v rtl/softmax_approx.v rtl/output_mac.v tb/tb_attention.v
+- Run simulation
+    > vvp sim.out
+-  Launches the GTKWave waveform viewer and loads the file
+    > gtkwave output/attention.vcd
+
 ## Testbench  
+
 Testbench can be found in tb/tb_attention.v
 
-## Input Files  
+## Input Files
+  
 Input files can be found in data/
 
 <img width="121" height="155" alt="image" src="https://github.com/user-attachments/assets/6a042463-5fd0-46dc-b9fe-796808fc74ad" />  
@@ -15,11 +36,9 @@ Input files can be found in data/
 - wv.txt ==> Value weight matrix W<sub>V</sub>
 
 ## Test cases and Results  
-Please refer Test.docx
+
+Please refer Test Cases.pdf
 
 ## Architecture
 
 <img width="1440" height="1300" alt="image" src="https://github.com/user-attachments/assets/cf7cb37d-892e-495e-8375-8e62abb9c500" />
-
-
-  
